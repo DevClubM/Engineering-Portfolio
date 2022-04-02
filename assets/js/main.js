@@ -219,3 +219,28 @@
   });
 
 })()
+
+
+
+btn = document.getElementById('mail-button');
+btn.addEventListener("click", function (e){
+  e.preventDefault();
+  var nem = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var subj = document.getElementById("subject").value;
+  var msg = document.getElementById("message").value;
+  var body = 'name: ' + nem + '<br/> email: '  + email + '<br/> subject: '  + subj + '<br/> message: '  + msg; 
+  Email.send({
+      Host : "smtp.gmail.com",
+      Username : "pigeonp953@gmail.com",
+      Password : "haha@1234",
+      To : 'pigeonp953@gmail.com',
+      From : email,
+      Subject : subject,
+      Body : body
+    }).then(
+      message => alert(message)
+    );
+  
+})
+
